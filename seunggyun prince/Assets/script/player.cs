@@ -11,7 +11,7 @@ public class player : MonoBehaviour
     [Header("GroundCast")]
     [SerializeField] private Vector2 groundCastSize; // 캐릭터 바닥 감지 박스 크기
     [SerializeField] private Vector2 groundCastOffset; // 캐릭터 바닥 감지 박스 위치
-
+    //주석을 새로 적었어요
     private Rigidbody2D RB;
     private Animator ANIM;
     private void Start()
