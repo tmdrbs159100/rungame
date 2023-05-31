@@ -4,53 +4,44 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public enum State {  Stand , Run , Jump ,Hit}
-    public float startJumpPower;
-    public float jumpPower;
-    public bool isGround;
+    [Header("Jump")]
+    [SerializeField] private float jumpScale; // 점프 크기 ( 파워 )
+    [SerializeField] private bool isGround; // 바닥에 닿았는지 상태
 
-    Rigidbody2D rigid;
-    Animator anim;
-    void Awake()
+    [Header("GroundCast")]
+    [SerializeField] private Vector2 groundCastSize; // 캐릭터 바닥 감지 박스 크기
+    [SerializeField] private Vector2 groundCastOffset; // 캐릭터 바닥 감지 박스 위치
+
+    private Rigidbody2D RB;
+    private Animator ANIM;
+    private void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        RB = GetComponent<Rigidbody2D>();
+        ANIM = GetComponent<Animator>();
     }
-
-    void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        Jump();
+    }
+    private void Jump()
+    {
+        isGround = Physics2D.BoxCast((Vector2)transform.position + groundCastOffset, groundCastSize, 0f, Vector2.zero, 0f, LayerMask.GetMask("Ground"));
+
+        if (isGround)
         {
-            rigid.AddForce(Vector2.up * startJumpPower, ForceMode2D.Impulse);
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                RB.AddForce(Vector2.up * jumpScale, ForceMode2D.Impulse);
+            }
+            else
+                ANIM.SetBool("IsJump", false);
         }
-        else if (Input.GetButton("Jump"))
-        {
-            jumpPower = Mathf.Lerp(jumpPower, 0,0.1f);
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        }
+        else
+            ANIM.SetBool("IsJump", true);
     }
-
-    void OnCollisionStay2D(Collision2D collision)
+    private void OnDrawGizmos()
     {
-        if (!isGround)
-        {
-
-            ChangeAnim(State.Run);
-
-        }
-    
-        isGround = true;
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        ChangeAnim(State.Jump);
-        isGround = false;
-    }
-
-    void ChangeAnim(State state)
-    {
-        anim.SetInteger("State", (int)state);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube((Vector2)transform.position + groundCastOffset, groundCastSize);
     }
 }
