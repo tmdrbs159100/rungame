@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossSpawner : MonoBehaviour
 {
@@ -70,8 +71,19 @@ public class BossSpawner : MonoBehaviour
         if (BossHealthGauge.Bosshealth <= 0f && boss != null)
         {
             Destroy(boss);
+            StartCoroutine(_FadeIn());
+            StartCoroutine(_NextScene());
             boss = null;
         }
     }
-
+    IEnumerator _FadeIn()
+    {
+        yield return new WaitForSeconds(3);
+        StageManager.instance.FadeIn();
+    }
+    IEnumerator _NextScene()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
