@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74b1a428a28fd640a7bff6c039257bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1632272192130498305, guid: f236b250ef24ea248904e18827d60713, type: 3}
-  attackDelay: 3
-  projectileSpeed: 10
+  projectilePrefab: {fileID: 2125191728174975228, guid: c786053e45440d6419131e3752ef34c9, type: 3}
+  attackDelay: 1.7
+  projectileSpeed: 20
 --- !u!1 &1989060132309906062
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1574, y: -157}
+  m_AnchoredPosition: {x: 1574, y: -170}
   m_SizeDelta: {x: 145.15, y: 142.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3171993388143597842

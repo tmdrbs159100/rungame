@@ -249,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 303.10004, y: -94}
+  m_AnchoredPosition: {x: 303.10004, y: -115}
   m_SizeDelta: {x: 101.27002, y: 101.26999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251064267
@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359360413}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.64, y: -0.2, z: 0.030616114}
+  m_LocalPosition: {x: -0.53, y: -0.2, z: 0.030616114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1074,7 +1074,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a67515f3a52d09f488ab16a07ad211ac, type: 2}
+  - {fileID: 2100000, guid: 4991c2e12716b2e47bdfd7a61bcfbfdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 0.4
-  Element: {fileID: 2100000, guid: a67515f3a52d09f488ab16a07ad211ac, type: 2}
+  Element: {fileID: 2100000, guid: 4991c2e12716b2e47bdfd7a61bcfbfdb, type: 2}
   vec: {x: 0, y: 0}
 --- !u!1 &1708108079
 GameObject:

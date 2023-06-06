@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 0.45
-  Element: {fileID: 2100000, guid: 7d044dad87ca6d9479db1dbebb8196e5, type: 2}
+  Element: {fileID: 2100000, guid: a331b16f724bcd74eaa757eef4008685, type: 2}
   vec: {x: 0, y: 0}
 --- !u!64 &31211529
 MeshCollider:
@@ -192,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d044dad87ca6d9479db1dbebb8196e5, type: 2}
+  - {fileID: 2100000, guid: a331b16f724bcd74eaa757eef4008685, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 0.45
-  Element: {fileID: 2100000, guid: 36d5462057bb26c45a7a6ceb4b713f05, type: 2}
+  Element: {fileID: 2100000, guid: 94ec19c00c3768b4bac74662fcbe9d41, type: 2}
   vec: {x: 0, y: 0}
 --- !u!64 &1185172214
 MeshCollider:
@@ -568,7 +568,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36d5462057bb26c45a7a6ceb4b713f05, type: 2}
+  - {fileID: 2100000, guid: 94ec19c00c3768b4bac74662fcbe9d41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSpawnTime: 10
-  prefabBoss: {fileID: 2736986224356211069, guid: 6b296c3206205cc46946e2ebd3ed3efb, type: 3}
+  prefabBoss: {fileID: 1947593281755135144, guid: e7f774789b2f7d7429abe54f0e8034e3, type: 3}
   trStartPos: {fileID: 1365799215}
   trDestPos: {fileID: 1895652564}
   arriveTime: 2
@@ -1216,7 +1216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895652563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.64, y: -0.2, z: 0.030616114}
+  m_LocalPosition: {x: -0.46, y: -0.2, z: 0.030616114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
