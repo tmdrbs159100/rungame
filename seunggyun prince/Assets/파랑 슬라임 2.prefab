@@ -47,6 +47,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2125191728174975228, guid: c786053e45440d6419131e3752ef34c9, type: 3}
   attackDelay: 1.7
   projectileSpeed: 20
+  boss: {fileID: 2009692049859105862}
 --- !u!1 &1989060132309906062
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +149,8 @@ GameObject:
   - component: {fileID: 8466046500034210337}
   - component: {fileID: -1605792713120249838}
   - component: {fileID: 4628818696998010687}
+  - component: {fileID: 498751590340965778}
+  - component: {fileID: 2009692049859105862}
   m_Layer: 0
   m_Name: "\uD30C\uB791 \uC2AC\uB77C\uC784 2"
   m_TagString: Boss
@@ -271,6 +274,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &498751590340965778
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736986224356211069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 552347d89edee6e438ccc7010fe4f29c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2009692049859105862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736986224356211069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d69ef1888deec94799a89f2d870ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3520263548292472710
 GameObject:
   m_ObjectHideFlags: 0

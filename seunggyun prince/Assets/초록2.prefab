@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4958937561913727773}
   - component: {fileID: 4475515414653614002}
   - component: {fileID: 8437121368725632841}
+  - component: {fileID: 4966679247838186983}
   m_Layer: 0
   m_Name: "\uCD08\uB85D2"
   m_TagString: Boss
@@ -156,6 +157,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4966679247838186983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409383849304741983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d69ef1888deec94799a89f2d870ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2961749045118896298
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +305,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1632272192130498305, guid: f236b250ef24ea248904e18827d60713, type: 3}
   attackDelay: 3
   projectileSpeed: 10
+  boss: {fileID: 4966679247838186983}
 --- !u!1 &4363865401054008744
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 1252432026313121842}
   - component: {fileID: 2317391618763826310}
   - component: {fileID: 5934229447423475151}
+  - component: {fileID: 7752961305686176285}
+  - component: {fileID: 3647365036983538377}
   m_Layer: 0
   m_Name: slime3
   m_TagString: Boss
@@ -224,6 +226,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5819697, y: 3.0108058}
   m_EdgeRadius: 0
+--- !u!114 &7752961305686176285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947593281755135144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d69ef1888deec94799a89f2d870ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &3647365036983538377
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947593281755135144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21941109c00b0a948bd42c0dfe6b279c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3295742705265766944
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6924211831819001560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4128294, y: -1.0940142, z: 0}
+  m_LocalPosition: {x: 1, y: -1, z: 0}
   m_LocalScale: {x: 0.49380684, y: 0.49380684, z: 0.49380684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -449,3 +483,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1632272192130498305, guid: f236b250ef24ea248904e18827d60713, type: 3}
   attackDelay: 3
   projectileSpeed: 10
+  boss: {fileID: 7752961305686176285}

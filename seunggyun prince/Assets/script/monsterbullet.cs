@@ -5,6 +5,7 @@ using UnityEngine;
 public class monsterbullet : MonoBehaviour
 {
     public float speed = 4f;
+    public float z = 0;
 
     private Rigidbody2D obstacleRigidbody;
     private Vector2 movementDirection;
@@ -16,6 +17,9 @@ public class monsterbullet : MonoBehaviour
 
     private void Start()
     {
+        float x = transform.rotation.x;
+        float y = transform.rotation.y;
+        transform.rotation = Quaternion.Euler(x,y,z);
     }
     private void Update()
     {

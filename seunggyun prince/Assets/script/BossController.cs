@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    public GameObject projectilePrefab; // º¸½º°¡ ¹ß»çÇÒ ÇÁ·ÎÁ§Å¸ÀÏ ÇÁ¸®ÆÕ
-    public float attackDelay = 3f; // °ø°Ý ÁÖ±â
-    public float projectileSpeed = 10f; // ÇÁ·ÎÁ§Å¸ÀÏ ¼Óµµ
+    public GameObject projectilePrefab; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float attackDelay = 3f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
+    public float projectileSpeed = 10f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Óµï¿½
 
+    public BossScript boss;
     private void Start()
     {
-        InvokeRepeating("Attack", attackDelay, attackDelay); // ÁÖ±âÀûÀ¸·Î Attack ¸Þ¼­µå¸¦ È£ÃâÇÏµµ·Ï ¼³Á¤
+        InvokeRepeating("Attack", attackDelay, attackDelay); // ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attack ï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
   
 
     private void Attack()
     {
-        // º¸½º°¡ ÇÁ·ÎÁ§Å¸ÀÏÀ» ¹ß»çÇÏ´Â ·ÎÁ÷À» ¿©±â¿¡ ±¸Çö
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½
 
-        // ÇÁ·ÎÁ§Å¸ÀÏÀ» »ý¼ºÇÏ°í, °íÁ¤µÈ ¹æÇâÀ¸·Î ¹ß»çµÇµµ·Ï ¼³Á¤
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRigidbody = projectile.GetComponent<Rigidbody2D>();
-        projectileRigidbody.velocity = Vector2.left * projectileSpeed; // º¸½ºÀÇ ¿ÞÂÊÀ¸·Î ÇÁ·ÎÁ§Å¸ÀÏ ¹ß»ç
+        boss.SetAttackAnim(true);
+        StartCoroutine(wait());
+        projectileRigidbody.velocity = Vector2.left * projectileSpeed; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ß»ï¿½
+    }
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.2f);
+        boss.SetAttackAnim(false);
     }
 }
