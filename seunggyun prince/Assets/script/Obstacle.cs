@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float speed = 4f; 
+    public float speed = 4f;
 
     private Rigidbody2D obstacleRigidbody;
-    private Vector2 movementDirection; 
 
     private void Awake()
     {
@@ -16,12 +15,15 @@ public class Obstacle : MonoBehaviour
 
     private void Start()
     {
+        // 3초 후에 Destroy 함수를 호출하여 자신을 제거합니다.
+        Destroy(gameObject, 15f);
     }
+
     private void Update()
     {
-            obstacleRigidbody.velocity = new Vector2(-speed,0);
-    
+        obstacleRigidbody.velocity = new Vector2(-speed, 0);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -29,15 +31,13 @@ public class Obstacle : MonoBehaviour
             Destroy(gameObject);
             HealthGauge.health -= 15f;
         }
-       
     }
-  
-
 }
 
 
 
-  
+
+
 
 
 

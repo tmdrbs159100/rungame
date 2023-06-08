@@ -86,4 +86,5 @@ public class BossSpawner : MonoBehaviour
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
 }

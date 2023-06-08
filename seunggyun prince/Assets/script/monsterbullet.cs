@@ -19,13 +19,17 @@ public class monsterbullet : MonoBehaviour
     {
         float x = transform.rotation.x;
         float y = transform.rotation.y;
-        transform.rotation = Quaternion.Euler(x,y,z);
+        transform.rotation = Quaternion.Euler(x, y, z);
+
+        // 3초 후에 Destroy 함수를 호출하여 자신을 제거합니다.
+        Destroy(gameObject, 2f);
     }
+
     private void Update()
     {
         obstacleRigidbody.velocity = new Vector2(-speed, 0);
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -33,9 +37,5 @@ public class monsterbullet : MonoBehaviour
             Destroy(gameObject);
             HealthGauge.health -= 15f;
         }
-
     }
-
-
 }
-
