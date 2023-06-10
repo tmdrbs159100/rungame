@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BossSpawner : MonoBehaviour
 {
-
     [SerializeField]
     private float bossSpawnTime = 10.0f;
 
@@ -21,8 +21,10 @@ public class BossSpawner : MonoBehaviour
     [SerializeField]
     private float arriveTime = 5.0f;
 
-    private GameObject boss;
+    [SerializeField]
+    private Image bossAppearanceImage = null;
 
+    private GameObject boss;
     private int secCount = 0;
 
     private void Start()
@@ -38,6 +40,7 @@ public class BossSpawner : MonoBehaviour
         boss = Instantiate(prefabBoss, trStartPos.position, Quaternion.identity);
 
         StartCoroutine(MoveBoss());
+        StartCoroutine(BlinkBossAppearanceImage());
     }
 
     private IEnumerator MoveBoss()
@@ -57,7 +60,6 @@ public class BossSpawner : MonoBehaviour
         }
     }
 
-
     private IEnumerator DebugTime()
     {
         while (true)
@@ -66,6 +68,30 @@ public class BossSpawner : MonoBehaviour
             Debug.Log($"timeCount : {++secCount}");
         }
     }
+
+    private IEnumerator BlinkBossAppearanceImage()
+{
+    Color initialColor = bossAppearanceImage.color;
+    float blinkInterval = 0.1f;
+    float blinkDuration = 2.0f;
+    float elapsedTime = 0f;
+
+    while (elapsedTime < blinkDuration)
+    {
+        float alpha = Mathf.PingPong(elapsedTime, blinkDuration) / blinkDuration;
+        bossAppearanceImage.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+
+        yield return new WaitForSeconds(blinkInterval);
+
+        elapsedTime += blinkInterval;
+    }
+
+    yield return new WaitForSeconds(1.7f); 
+
+    bossAppearanceImage.gameObject.SetActive(false); 
+}
+
+
     private void Update()
     {
         if (BossHealthGauge.Bosshealth <= 0f && boss != null)
@@ -76,15 +102,16 @@ public class BossSpawner : MonoBehaviour
             boss = null;
         }
     }
+
     IEnumerator _FadeIn()
     {
         yield return new WaitForSeconds(3);
         StageManager.instance.FadeIn();
     }
+
     IEnumerator _NextScene()
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
 }

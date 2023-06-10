@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BossHealthGauge : MonoBehaviour
 {
     Image BossHPbar;
-    float maxHealth = 1000f;
+    public float maxHealth = 1000f;
     public static float Bosshealth;
     
     void Start()
