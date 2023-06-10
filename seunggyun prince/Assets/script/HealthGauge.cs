@@ -7,12 +7,15 @@ public class HealthGauge : MonoBehaviour
 {
     [SerializeField] private GameObject panelGameOver;
     [SerializeField] private GameObject panelReplay;
-    
+    [SerializeField] private GameObject mainmen;
+
+
     Image healthBar;
     public float maxHealth = 100f;
     public static float health;
     public static bool isGameOver;
-    public static bool isRePlay;
+    public static bool isRePlay; 
+    public static bool isMainmen;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,12 @@ public class HealthGauge : MonoBehaviour
         {
             isGameOver = true;
             panelReplay.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        if (health <= 0 && isMainmen== false)
+        {
+            isGameOver = true;
+            mainmen.SetActive(true);
             Time.timeScale = 0f;
         }
         healthBar.fillAmount = health / maxHealth;

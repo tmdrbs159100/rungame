@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -399, y: -157}
-  m_SizeDelta: {x: 237, y: 106}
+  m_AnchoredPosition: {x: -715, y: -424.86}
+  m_SizeDelta: {x: 424.6769, y: 189.9399}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481526669
 MonoBehaviour:
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace44455d4c93c47887655fedbe7e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSound: {fileID: 8300000, guid: eee50abca079afb4baf5c096512c78ca, type: 3}
 --- !u!95 &481526673
 Animator:
   serializedVersion: 4
@@ -382,8 +383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 384, y: -46}
-  m_SizeDelta: {x: 237, y: 106}
+  m_AnchoredPosition: {x: 621, y: -124.23}
+  m_SizeDelta: {x: 555.5085, y: 248.4553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511004637
 MonoBehaviour:
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace44455d4c93c47887655fedbe7e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSound: {fileID: 8300000, guid: eee50abca079afb4baf5c096512c78ca, type: 3}
 --- !u!114 &511004638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,7 +738,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1116, y: 521}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555447645
 MonoBehaviour:
@@ -815,8 +817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 384, y: -165}
-  m_SizeDelta: {x: 237, y: 106}
+  m_AnchoredPosition: {x: 621.15, y: -395.5417}
+  m_SizeDelta: {x: 555.8, y: 248.5834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603692564
 MonoBehaviour:
@@ -924,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ace44455d4c93c47887655fedbe7e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonSound: {fileID: 8300000, guid: eee50abca079afb4baf5c096512c78ca, type: 3}
 --- !u!95 &603692568
 Animator:
   serializedVersion: 4

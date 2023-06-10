@@ -24,6 +24,9 @@ public class BossSpawner : MonoBehaviour
     [SerializeField]
     private Image bossAppearanceImage = null;
 
+    public AudioClip bossBackgroundMusic;
+    private AudioSource audioSource;
+
     private GameObject boss;
     private int secCount = 0;
 
@@ -31,6 +34,9 @@ public class BossSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnBoss());
         StartCoroutine(DebugTime());
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true; // 배경음악을 루핑하도록 설정
     }
 
     private IEnumerator SpawnBoss()
@@ -41,6 +47,13 @@ public class BossSpawner : MonoBehaviour
 
         StartCoroutine(MoveBoss());
         StartCoroutine(BlinkBossAppearanceImage());
+
+        // 기존 배경음악 중지
+        audioSource.Stop();
+
+        // 새로운 음악 재생
+        audioSource.clip = bossBackgroundMusic;
+        audioSource.Play();
     }
 
     private IEnumerator MoveBoss()
@@ -70,27 +83,26 @@ public class BossSpawner : MonoBehaviour
     }
 
     private IEnumerator BlinkBossAppearanceImage()
-{
-    Color initialColor = bossAppearanceImage.color;
-    float blinkInterval = 0.1f;
-    float blinkDuration = 2.0f;
-    float elapsedTime = 0f;
-
-    while (elapsedTime < blinkDuration)
     {
-        float alpha = Mathf.PingPong(elapsedTime, blinkDuration) / blinkDuration;
-        bossAppearanceImage.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
+        Color initialColor = bossAppearanceImage.color;
+        float blinkInterval = 0.1f;
+        float blinkDuration = 2.0f;
+        float elapsedTime = 0f;
 
-        yield return new WaitForSeconds(blinkInterval);
+        while (elapsedTime < blinkDuration)
+        {
+            float alpha = Mathf.PingPong(elapsedTime, blinkDuration) / blinkDuration;
+            bossAppearanceImage.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
 
-        elapsedTime += blinkInterval;
+            yield return new WaitForSeconds(blinkInterval);
+
+            elapsedTime += blinkInterval;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        bossAppearanceImage.gameObject.SetActive(false);
     }
-
-    yield return new WaitForSeconds(1.7f); 
-
-    bossAppearanceImage.gameObject.SetActive(false); 
-}
-
 
     private void Update()
     {
@@ -100,6 +112,9 @@ public class BossSpawner : MonoBehaviour
             StartCoroutine(_FadeIn());
             StartCoroutine(_NextScene());
             boss = null;
+
+            // 기존 배경음악 중지
+            audioSource.Stop();
         }
     }
 

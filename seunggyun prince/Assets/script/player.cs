@@ -14,6 +14,9 @@ public class player : MonoBehaviour
     [SerializeField] private Vector2 groundCastSize; // 캐릭터 바닥 감지 박스 크기
     [SerializeField] private Vector2 groundCastOffset; // 캐릭터 바닥 감지 박스 위치
 
+    public AudioClip jumpSound; // 점프 사운드 파일
+    private AudioSource audioSource; // 점프 사운드 재생을 위한 AudioSource
+
     private Rigidbody2D RB;
     private Animator ANIM;
 
@@ -22,6 +25,12 @@ public class player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         ANIM = GetComponent<Animator>();
         jumpCount = 0;
+
+        // AudioSource 컴포넌트 추가 및 설정
+        audioSource = gameObject.AddComponent<AudioSource>();
+       
+
+        audioSource.playOnAwake = false;
     }
 
     private void Update()
@@ -41,6 +50,7 @@ public class player : MonoBehaviour
             {
                 RB.velocity = new Vector2(RB.velocity.x, jumpScale);
                 jumpCount++; // 점프 횟수 증가
+                PlayJumpSound(); // 점프 사운드 재생
             }
 
             ANIM.SetBool("IsJump", false);
@@ -51,10 +61,17 @@ public class player : MonoBehaviour
             {
                 RB.velocity = new Vector2(RB.velocity.x, jumpScale);
                 jumpCount++; // 점프 횟수 증가
+                PlayJumpSound(); // 점프 사운드 재생
             }
 
             ANIM.SetBool("IsJump", true);
         }
+    }
+
+
+    private void PlayJumpSound()
+    {
+        audioSource.PlayOneShot(jumpSound); // 점프 사운드 재생
     }
 
     private void OnDrawGizmos()
@@ -75,11 +92,12 @@ public class player : MonoBehaviour
     {
         StartCoroutine(WaitAndSetHitFalse());
 
-        IEnumerator WaitAndSetHitFalse()
+        System.Collections.IEnumerator WaitAndSetHitFalse()
         {
             yield return new WaitForSeconds(0.5f);
             ANIM.SetBool("IsHit", false);
         }
     }
 }
+
 
