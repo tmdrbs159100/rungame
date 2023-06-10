@@ -7,49 +7,59 @@ using UnityEngine.EventSystems;
 
 public class Mainmenu_UI : MonoBehaviour
 {
-    private Animator buttonAnimator;
+
+    [SerializeField] Image MenuPanel;
+    public bool IsMenu = false;
+    [Header("ë²„íŠ¼")]
+    [SerializeField] Button StartBtn;
+    [SerializeField] Button MenuBtn;
+    [SerializeField] Button EndBtn;
+    [SerializeField] Button QuitMenuBtn;
+
+    [Header("ì˜¤ë””ì˜¤")]
     private AudioSource audioSource;
     public AudioClip buttonSound;
 
     private void Start()
     {
-        buttonAnimator = GetComponent<Animator>();
-        audioSource = gameObject.AddComponent<AudioSource>(); // AudioSource ÄÄÆ÷³ÍÆ® Ãß°¡
-        audioSource.clip = buttonSound; // AudioClip ÇÒ´ç
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = buttonSound;
+
+        StartBtn.onClick.AddListener(() => GoGameScene());
+        MenuBtn.onClick.AddListener(() => GoMenuScene());
+        EndBtn.onClick.AddListener(() => GoEnd());
+        QuitMenuBtn.onClick.AddListener(() => QuitMenu());
     }
 
     public void GoGameScene()
     {
-        PlayButtonSound(); // ¹öÆ° »ç¿îµå Àç»ý
-        SceneManager.LoadScene(0);
+        if (IsMenu == false)
+        {
+            PlayButtonSound();
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void GoMenuScene()
     {
-        PlayButtonSound(); // ¹öÆ° »ç¿îµå Àç»ý
-        SceneManager.LoadScene(5);
+        if (IsMenu == false)
+        {
+            PlayButtonSound();
+            MenuPanel.gameObject.SetActive(true);
+            IsMenu = true;
+        }
     }
-
-    public void GoMainMenuScene()
+    public void QuitMenu()
     {
-        PlayButtonSound(); // ¹öÆ° »ç¿îµå Àç»ý
-        SceneManager.LoadScene(4);
+        PlayButtonSound();
+        MenuPanel.gameObject.SetActive(false);
+        IsMenu = false;
     }
-
     public void GoEnd()
     {
-        PlayButtonSound(); // ¹öÆ° »ç¿îµå Àç»ý
+        PlayButtonSound();
         Application.Quit();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        buttonAnimator.SetBool("IsHovering", true);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        buttonAnimator.SetBool("IsHovering", false);
+        IsMenu = false;
     }
 
     private void PlayButtonSound()
