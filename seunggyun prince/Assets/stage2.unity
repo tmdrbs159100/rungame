@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReStartBtn: {fileID: 446721801}
+  ButtonlogacyBtn: {fileID: 1110353795}
 --- !u!4 &122405009
 Transform:
   m_ObjectHideFlags: 0

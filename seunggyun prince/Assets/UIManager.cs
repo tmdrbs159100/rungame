@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] Button ReStartBtn;
+    [SerializeField] Button ButtonlogacyBtn;
     void Start()
     {
         ReStartBtn.onClick.AddListener(()=> {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
+        });
+        ButtonlogacyBtn.onClick.AddListener(()=> {
+            SceneManager.LoadScene(5);
         });
     }
 

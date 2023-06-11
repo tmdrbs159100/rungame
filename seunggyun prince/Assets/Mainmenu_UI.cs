@@ -36,7 +36,7 @@ public class Mainmenu_UI : MonoBehaviour
         if (IsMenu == false)
         {
             PlayButtonSound();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
