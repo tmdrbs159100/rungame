@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene(1);
         });
         ButtonlogacyBtn.onClick.AddListener(()=> {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
         });
     }
 
